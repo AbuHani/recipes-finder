@@ -1,0 +1,34 @@
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.items .item {
+  background-color: #f4f7fc;
+  margin: 2px 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  flex: 1 0 20%;
+  transition: 0.3s;
+}
+.item span {
+  text-transform: uppercase;
+}
+.item button {
+  border: 2px solid transparent;
+  background: transparent;
+  font-size: 13px;
+  cursor: pointer;
+  color: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+  &:hover {
+    background: #f44336;
+    color: white;
+  }
+}

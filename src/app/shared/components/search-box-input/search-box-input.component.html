@@ -1,0 +1,16 @@
+<div>
+  <input
+    type="text"
+    name="gradient"
+    class="form-control"
+    [placeholder]="placeholder"
+    [formControl]="textInput"
+    (keyup.enter)="onEnter()"
+  />
+  <div class="items">
+    <div *ngFor="let item of items; let i = index" class="item">
+      <span> {{ item }} </span>
+      <button (click)="onDelete(i)">X</button>
+    </div>
+  </div>
+</div>
