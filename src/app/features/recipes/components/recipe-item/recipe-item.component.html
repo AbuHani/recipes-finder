@@ -1,0 +1,13 @@
+<div
+  class="recipe-card"
+  [ngStyle]="{ backgroundImage: 'url(' + recipe.image + ')' }"
+>
+  <div class="recipe-container">
+    <div class="content">
+      <a class="btn" routerLink="/recipes/{{ recipe.id }}">View</a>
+    </div>
+  </div>
+  <div class="info-container">
+    <h2 class="title">{{ recipe.title }}</h2>
+  </div>
+</div>

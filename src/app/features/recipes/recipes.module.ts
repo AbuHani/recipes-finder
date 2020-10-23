@@ -4,14 +4,14 @@ import { SharedModule } from '../../shared/shared.module';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { RecipesComponent } from './recipes.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
-import { RecipeDeatilsComponent } from './recipe-deatils/recipe-deatils.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
+import { RecipeDetailsComponent } from './recipe-deatils/recipe-details.component';
 
 const components = [
   RecipesComponent,
   RecipeItemComponent,
   RecipesListComponent,
-  RecipeDeatilsComponent
+  RecipeDetailsComponent
 ];
 
 @NgModule({

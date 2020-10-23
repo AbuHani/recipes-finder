@@ -1,0 +1,27 @@
+.recipe-title {
+  padding: 30px 0;
+}
+.recipe-img {
+  width: 550px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.ingredients-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  flex: 1 0 50%;
+}
+
+.ingredient-item img {
+  width: 50px;
+  margin: 5px;
+}

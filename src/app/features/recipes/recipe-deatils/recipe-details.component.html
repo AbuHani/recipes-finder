@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="recipe-container">
+    <div class="recipe-detail" *ngIf="recipe">
+      <h2 class="recipe-title">{{ recipe.title }}</h2>
+      <img class="recipe-img" [src]="recipe.image" [alt]="recipe.title" />
+      <ul class="ingredients-list">
+        <li
+          class="ingredient-item"
+          *ngFor="let ingredient of recipe.extendedIngredients"
+        >
+          <img
+            [src]="
+              'https://spoonacular.com/cdn/ingredients_250x250/' +
+              ingredient.image
+            "
+            [alt]="ingredient.originalString"
+          />
+          <p>{{ ingredient.originalString }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

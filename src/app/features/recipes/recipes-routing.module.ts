@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RecipesComponent } from './recipes.component';
-import { RecipeDeatilsComponent } from './recipe-deatils/recipe-deatils.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { RecipeDetailsComponent } from './recipe-deatils/recipe-details.component';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: RecipeDeatilsComponent
+    component: RecipeDetailsComponent
   }
 ];
 

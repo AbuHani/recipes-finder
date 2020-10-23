@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="left-side">
+    <div class="filter-container">
+      <h4 class="title">Filter</h4>
+      <rf-search-box-input
+        [placeholder]="'Search for ingredients'"
+        (textEntered)="onIngredientsEnterted($event)"
+      ></rf-search-box-input>
+    </div>
+  </div>
+  <div class="content">
+    <div class="pages" *ngIf="pager.currentPage">
+      Page {{ pager.currentPage }} of {{ pager.totalPages }}
+    </div>
+    <div class="recipes-container">
+      <rf-recipe-item
+        *ngFor="let recipe of recipes"
+        [recipe]="recipe"
+        class="recipe-item"
+      ></rf-recipe-item>
+    </div>
+    <rf-pagination
+      [pageSize]="10"
+      [maxPages]="5"
+      [totalItems]="totalResults"
+      (pageChanged)="onPageChanged($event)"
+    ></rf-pagination>
+  </div>
+</div>

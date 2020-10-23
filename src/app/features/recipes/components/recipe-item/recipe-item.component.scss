@@ -1,0 +1,104 @@
+@mixin cardsOpen() {
+  &::before {
+    background: rgba(10, 72, 112, 0.6);
+  }
+  .recipe-container {
+    .content {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  .info-container {
+    transform: translateY(0px);
+    .more-information {
+      opacity: 1;
+    }
+  }
+}
+.recipe-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  color: var(--primary-color);
+  transition: 0.3s;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 72, 112, 0);
+    transition: 0.3s;
+  }
+  &:hover {
+    @include cardsOpen();
+  }
+}
+.recipe-card .recipe-container {
+  height: 200px;
+}
+.recipe-card .recipe-container .content {
+  position: relative;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  transform: translateY(-200px);
+  transition: 0.3s;
+}
+.recipe-card .recipe-container .btn {
+  border: 3px solid white;
+  padding: 10px 15px;
+  background: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: white;
+    border: 0px solid white;
+    color: var(--primary-color);
+  }
+}
+.recipe-card .info-container {
+  flex: 1 0 auto;
+  padding: 20px;
+  background: var(--grey-alpha-1);
+  transform: translateY(206px);
+  transition: 0.3s;
+}
+.recipe-card .info-container .title {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: 50px;
+    margin: auto;
+    background: var(--primary-color);
+  }
+}
+@media (max-width: 1024px) {
+  .recipe-card {
+    @include cardsOpen();
+  }
+}
