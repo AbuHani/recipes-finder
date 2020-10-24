@@ -2,18 +2,22 @@
   <div class="recipe-container">
     <div class="recipe-detail">
       <div class="recipe-title">
-        <h2 *ngIf="!isLoading">{{ recipe.title }}</h2>
+        <h2 *ngIf="!isLoading && recipe">{{ recipe?.title }}</h2>
         <div
           class="skeleton-placeholder title-placeholder"
           *ngIf="isLoading"
         ></div>
       </div>
       <div class="recipe-img">
-        <img *ngIf="!isLoading" [src]="recipe.image" [alt]="recipe.title" />
+        <img
+          *ngIf="!isLoading && recipe"
+          [src]="recipe.image"
+          [alt]="recipe.title"
+        />
         <div *ngIf="isLoading" class="skeleton-placeholder card-image"></div>
       </div>
       <ul class="ingredients-list">
-        <ng-container *ngIf="!isLoading">
+        <ng-container *ngIf="!isLoading && recipe">
           <li
             class="ingredient-item"
             *ngFor="let ingredient of recipe.extendedIngredients"
