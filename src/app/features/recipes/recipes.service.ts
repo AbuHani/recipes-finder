@@ -1,11 +1,9 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
-import { RESTService, QueryPayload } from '../../core/services/rest.service';
-import { Recipe, RecipeResponse } from '../../data/recipe';
-
+import { QueryPayload, RESTService } from '@rf/core';
+import { Recipe, RecipeResponse } from '@rf/data/recipe';
+import { environment } from '@rf/environment';
 
 @Injectable({
   providedIn: 'root'
