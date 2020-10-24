@@ -1,7 +1,16 @@
+/**
+ * @author @Abdelrahman
+ *
+ * @classdesc   Responsible for recipes components
+ */
+// ANGULAR MODULES
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@rf/shared';
 
+// ROUTING
 import { RecipesRoutingModule } from './recipes-routing.module';
+
+// COMPONENTS
 import { RecipesComponent } from './recipes.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';

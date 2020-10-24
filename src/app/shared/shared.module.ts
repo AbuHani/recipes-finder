@@ -1,7 +1,13 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc   Shared module
+ */
+// ANGULAR MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+// COMPONENTS
 import { SearchBoxInputComponent } from './components/search-box-input/search-box-input.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 

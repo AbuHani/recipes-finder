@@ -1,3 +1,8 @@
+/**
+ * @author Abdelrahman
+ *
+ * @classdesc   Recipes master component
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({

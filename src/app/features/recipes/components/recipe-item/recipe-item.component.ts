@@ -1,5 +1,11 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc   Recipe item component
+ * @Input  {Recipe} recipe
+ */
+// ANGULAR MODULES
 import { Component, Input, OnInit } from '@angular/core';
-import { Recipe } from 'src/app/data/recipe';
+import { Recipe } from '@rf/data/recipe';
 
 @Component({
   selector: 'rf-recipe-item',

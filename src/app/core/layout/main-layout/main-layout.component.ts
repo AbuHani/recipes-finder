@@ -1,3 +1,8 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc   Main layout component
+ */
+// ANGULAR MODULES
 import { Component, OnInit } from '@angular/core';
 
 @Component({

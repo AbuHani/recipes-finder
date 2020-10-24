@@ -1,3 +1,12 @@
+/**
+ * @author https://github.com/cornflourblue/jw-paginate
+ * @params  {number} totalItems
+ * @params  {number} currentPage
+ * @params  {number} pageSize
+ * @params  {number} maxPages
+ *
+ * @returns pager object
+ */
 function paginate(
     totalItems: number,
     currentPage: number = 1,

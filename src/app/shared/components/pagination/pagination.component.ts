@@ -1,4 +1,16 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc   Responsible for creating pagination
+ * @Input  {number} pageSize
+ * @Input  {number} maxPages
+ * @Input  {number} totalItems
+ * @Input  {number} currentPage
+ * @Output  {number} pageChanged
+ */
+// ANGULAR MODULES
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+
+// SERVICES
 import paginate from './paginate';
 
 @Component({
@@ -7,12 +19,13 @@ import paginate from './paginate';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit, OnChanges {
-  pager: any = {};
   @Input() pageSize: number = 10;
   @Input() maxPages: number = 10;
   @Output() pageChanged: EventEmitter<number> = new EventEmitter();
   @Input() totalItems: number;
+  @Input() disable: boolean;
   @Input() currentPage = 1;
+  pager: any = {};
 
   constructor() { }
 
@@ -25,7 +38,11 @@ export class PaginationComponent implements OnInit, OnChanges {
     }
   }
 
-  setPage(page): void {
+  /**
+   * @desc Trigger changes of page number
+   * @params  {number} page
+   */
+  setPage(page: number): void {
     this.pager = paginate(
       this.totalItems,
       page,

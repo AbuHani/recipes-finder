@@ -1,3 +1,8 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc   Rest service for handling HTTP requests
+ */
+// ANGULAR MODULES
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,6 +32,13 @@ const getParamsFromQuery = (query: QueryPayload | null | undefined): HttpParams 
 export class RESTService {
     constructor(private http: HttpClient) { }
 
+    /**
+     * @desc Get http request
+     * @params  {string} url
+     * @params  {QueryPayload} query?
+     *
+     * @returns Observable
+     */
     get<T>(url: string, query?: QueryPayload): Observable<T> {
         return this.http.get<T>(url, { params: getParamsFromQuery(query) });
     }

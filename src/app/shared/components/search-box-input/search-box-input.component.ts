@@ -1,3 +1,10 @@
+/**
+ * @author @Abdelrahman
+ * @classdesc  Seach box component with multiple search inputs
+ * @Input  {number} placeholder
+ * @Output  {string[]} textEntered
+ */
+// ANGULAR MODULES
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -17,6 +24,9 @@ export class SearchBoxInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * @desc Trigger input text on enter action
+   */
   onEnter(): void {
     const value = this.textInput.value;
     if (!!value && value.length && this.items.indexOf(value) === -1) {
@@ -26,6 +36,9 @@ export class SearchBoxInputComponent implements OnInit {
     this.textInput.setValue(null);
   }
 
+  /**
+   * @desc Remove text from items Array
+   */
   onDelete(index): void {
     this.items.splice(index, 1);
     this.textEntered.emit(this.items);
