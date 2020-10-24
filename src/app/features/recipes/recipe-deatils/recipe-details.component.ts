@@ -46,9 +46,7 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
       .subscribe((response) => {
         this.recipe = response;
         this.isLoading = false;
-        console.log(response);
       }, (error) => {
-        console.log(error);
         this.isLoading = false;
       });
     this.subscription.add(recipesSub);

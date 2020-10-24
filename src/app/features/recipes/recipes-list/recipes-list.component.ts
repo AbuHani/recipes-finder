@@ -58,9 +58,7 @@ export class RecipesListComponent implements OnInit, OnDestroy {
         this.totalResults = response.totalResults;
         this.isDataLoading = false;
         this.isFilterLoading = false;
-        console.log(response);
       }, (error) => {
-        console.log(error);
         this.isDataLoading = false;
         this.isFilterLoading = false;
       });
