@@ -1,29 +1,51 @@
 <div class="container">
-  <div class="left-side">
-    <div class="filter-container">
-      <h4 class="title">Filter</h4>
-      <rf-search-box-input
-        [placeholder]="'Search for ingredients'"
-        (textEntered)="onIngredientsEnterted($event)"
-      ></rf-search-box-input>
-    </div>
+  <div class="pages" *ngIf="pager.currentPage">
+    Page {{ pager.currentPage }} of {{ pager.totalPages }}
   </div>
-  <div class="content">
-    <div class="pages" *ngIf="pager.currentPage">
-      Page {{ pager.currentPage }} of {{ pager.totalPages }}
+  <div class="list-container">
+    <div class="left-side">
+      <div class="filter-container">
+        <ng-container *ngIf="!isFilterLoading">
+          <h4 class="title">Filter</h4>
+          <rf-search-box-input
+            [placeholder]="'Search for ingredients'"
+            (textEntered)="onIngredientsEnterted($event)"
+          ></rf-search-box-input>
+        </ng-container>
+        <ng-container *ngIf="isFilterLoading">
+          <div class="skeleton-placeholder title-placeholder"></div>
+          <div class="skeleton-placeholder input-placeholder"></div>
+          <div class="skeleton-placeholder filter-placeholder"></div>
+        </ng-container>
+      </div>
     </div>
-    <div class="recipes-container">
-      <rf-recipe-item
-        *ngFor="let recipe of recipes"
-        [recipe]="recipe"
-        class="recipe-item"
-      ></rf-recipe-item>
+    <div class="content">
+      <div class="recipes-container">
+        <rf-recipe-item
+          *ngFor="let recipe of recipes"
+          [recipe]="recipe"
+          class="recipe-item"
+        ></rf-recipe-item>
+        <ng-container *ngIf="isDataLoading">
+          <div
+            class="skeleton-placeholder card-placeholder recipe-item"
+            *ngFor="let item of [].constructor(9)"
+          ></div>
+        </ng-container>
+      </div>
+      <div class="pages">
+        <rf-pagination
+          [disable]="isDataLoading"
+          [pageSize]="10"
+          [maxPages]="5"
+          [totalItems]="totalResults"
+          (pageChanged)="onPageChanged($event)"
+        ></rf-pagination>
+        <div
+          *ngIf="isFilterLoading"
+          class="skeleton-placeholder pagination-placeholder"
+        ></div>
+      </div>
     </div>
-    <rf-pagination
-      [pageSize]="10"
-      [maxPages]="5"
-      [totalItems]="totalResults"
-      (pageChanged)="onPageChanged($event)"
-    ></rf-pagination>
   </div>
 </div>

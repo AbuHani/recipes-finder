@@ -1,4 +1,4 @@
-<nav aria-label="Page users">
+<nav aria-label="Nav" [ngClass]="{ disable: disable }">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li
       [ngClass]="{ disabled: pager.currentPage === 1 }"
@@ -22,5 +22,4 @@
       <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
     </li>
   </ul>
-  `
 </nav>

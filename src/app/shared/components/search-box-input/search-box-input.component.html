@@ -1,12 +1,13 @@
 <div>
   <input
     type="text"
-    name="gradient"
+    name="input"
     class="form-control"
     [placeholder]="placeholder"
     [formControl]="textInput"
     (keyup.enter)="onEnter()"
   />
+  <p class="note" *ngIf="!items.length">Type your text and hit Enter</p>
   <div class="items">
     <div *ngFor="let item of items; let i = index" class="item">
       <span> {{ item }} </span>

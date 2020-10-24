@@ -17,6 +17,7 @@
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 .page-link {
   position: relative;
@@ -31,4 +32,8 @@ a:not([href]):not([tabindex]) {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
+  cursor: default;
+}
+nav.disable {
+  pointer-events: none;
 }

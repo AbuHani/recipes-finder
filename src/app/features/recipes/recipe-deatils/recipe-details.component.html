@@ -1,22 +1,38 @@
 <div class="container">
   <div class="recipe-container">
-    <div class="recipe-detail" *ngIf="recipe">
-      <h2 class="recipe-title">{{ recipe.title }}</h2>
-      <img class="recipe-img" [src]="recipe.image" [alt]="recipe.title" />
+    <div class="recipe-detail">
+      <div class="recipe-title">
+        <h2 *ngIf="!isLoading">{{ recipe.title }}</h2>
+        <div
+          class="skeleton-placeholder title-placeholder"
+          *ngIf="isLoading"
+        ></div>
+      </div>
+      <div class="recipe-img">
+        <img *ngIf="!isLoading" [src]="recipe.image" [alt]="recipe.title" />
+        <div *ngIf="isLoading" class="skeleton-placeholder card-image"></div>
+      </div>
       <ul class="ingredients-list">
-        <li
-          class="ingredient-item"
-          *ngFor="let ingredient of recipe.extendedIngredients"
-        >
-          <img
-            [src]="
-              'https://spoonacular.com/cdn/ingredients_250x250/' +
-              ingredient.image
-            "
-            [alt]="ingredient.originalString"
-          />
-          <p>{{ ingredient.originalString }}</p>
-        </li>
+        <ng-container *ngIf="!isLoading">
+          <li
+            class="ingredient-item"
+            *ngFor="let ingredient of recipe.extendedIngredients"
+          >
+            <img
+              [src]="
+                'https://spoonacular.com/cdn/ingredients_250x250/' +
+                ingredient.image
+              "
+              [alt]="ingredient.originalString"
+            />
+            <p>{{ ingredient.originalString }}</p>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+          <li *ngFor="let item of [].constructor(12)" class="ingredient-item">
+            <div class="skeleton-placeholder input-placeholder"></div>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>

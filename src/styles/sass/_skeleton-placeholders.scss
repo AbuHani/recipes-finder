@@ -1,0 +1,61 @@
+.skeleton-placeholder {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  animation: progress 1s ease-in-out infinite;
+  background: #ededed no-repeat;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 200px 100%;
+  border-radius: 4px;
+  height: 30px;
+  display: inline-block;
+  margin-bottom: 10px;
+  &:after,
+  &:before {
+    box-sizing: border-box;
+  }
+  &.circle {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
+  }
+}
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+.input-placeholder {
+  width: 230px !important;
+  min-height: 30px !important;
+  display: block;
+}
+.title-placeholder {
+  width: 100px !important;
+  min-height: 30px !important;
+}
+.filter-placeholder {
+  width: 100% !important;
+  min-height: 300px !important;
+}
+.card-placeholder {
+  width: calc(100% / 3 - 1.5rem) !important;
+  height: 150px !important;
+}
+.card-image {
+  width: 100% !important;
+  height: 300px !important;
+}
+.pagination-placeholder {
+  width: 300px !important;
+  min-height: 30px !important;
+}

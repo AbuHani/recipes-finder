@@ -1,7 +1,7 @@
-.container {
+.list-container {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 30px;
+  min-height: calc(100vh - 150px);
 }
 .left-side {
   flex: 1;
@@ -13,13 +13,14 @@
 .pages {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 20px;
+  padding: 20px 0;
 }
 .filter-container {
   padding: 20px;
   margin-right: 25px;
   background-color: #fff;
-  height: 30%;
+  min-height: 300px;
+  border-radius: 4px;
 }
 .filter-container .title {
   margin-bottom: 15px;
@@ -40,7 +41,7 @@
   }
 }
 @media (max-width: 768px) {
-  .container {
+  .list-container {
     flex-direction: column;
     gap: 30px;
   }
