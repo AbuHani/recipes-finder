@@ -19,7 +19,7 @@ export class SpoonacularHttpClient implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         if (request.url.startsWith(environment.spoonacular.baseUrl)) {
-            return this.handleRequest(request, next, 0);
+            return this.handleRequest(request, next, this.apiIndex);
         }
         return next.handle(request);
     }
@@ -34,8 +34,10 @@ export class SpoonacularHttpClient implements HttpInterceptor {
      */
     handleRequest(request: HttpRequest<any>, next: HttpHandler, i: number): Observable<HttpEvent<any>> {
         if (i >= environment.spoonacular.keys.length) {
+            this.apiIndex = 0;
             return throwError('YOU_ARE_NOT_AUTHORIZED');
         }
+        this.apiIndex = i;
         return next.handle(
             this.setHeader(
                 request,
@@ -67,5 +69,22 @@ export class SpoonacularHttpClient implements HttpInterceptor {
                 'apiKey', apiKey
             ),
         });
+    }
+
+    /**
+     * @desc Set index of apiKey
+     * @params  {number} i
+     */
+    set apiIndex(i: number) {
+        localStorage.setItem('apiIndex', i.toString());
+    }
+
+    /**
+     * @desc Returns apiKey index
+     * @returns number
+     */
+    get apiIndex(): number {
+        const apiIndex = localStorage.getItem('apiIndex');
+        return isNaN(+apiIndex) ? 0 : +apiIndex;
     }
 }
