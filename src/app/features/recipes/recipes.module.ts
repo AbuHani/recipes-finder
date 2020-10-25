@@ -5,10 +5,12 @@
  */
 // ANGULAR MODULES
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@rf/shared';
 
 // ROUTING
 import { RecipesRoutingModule } from './recipes-routing.module';
+
+// MODULES
+import { SharedModule } from '@rf/shared';
 
 // COMPONENTS
 import { RecipesComponent } from './recipes.component';
