@@ -5,7 +5,7 @@
     class="form-control"
     [placeholder]="placeholder"
     [formControl]="textInput"
-    (keyup.enter)="onEnter()"
+    (keypress)="onEnter($event)"
   />
   <p class="note" *ngIf="!items.length">Type your text and hit Enter</p>
   <div class="items">

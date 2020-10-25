@@ -27,13 +27,15 @@ export class SearchBoxInputComponent implements OnInit {
   /**
    * @desc Trigger input text on enter action
    */
-  onEnter(): void {
-    const value = this.textInput.value;
-    if (!!value && value.length && this.items.indexOf(value) === -1) {
-      this.items.push(value);
-      this.textEntered.emit(this.items);
+  onEnter(event): void {
+    if (event.keyCode === 13) {
+      const value = this.textInput.value;
+      if (!!value && value.length && this.items.indexOf(value) === -1) {
+        this.items.push(value);
+        this.textEntered.emit(this.items);
+      }
+      this.textInput.setValue(null);
     }
-    this.textInput.setValue(null);
   }
 
   /**
